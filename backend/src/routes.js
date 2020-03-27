@@ -10,7 +10,7 @@ routes.get('/ongs', OngsController.index)
 routes.post('/ongs', OngsController.create );
 
 
-routes.post('/session', SessionController.create );
+routes.post('/sessions', SessionController.create );
 
 
 routes.post('/incidents', IncidentsController.create ); 
