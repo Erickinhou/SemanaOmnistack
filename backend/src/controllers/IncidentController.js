@@ -40,7 +40,10 @@ module.exports = {
         const {id} = request.params
         const ong_id = request.headers.authorization;
 
-        const incidents = await connection('incidents').select('ong_id').where('id', id).first()
+        const incidents = await connection('incidents').select('ong_id').where('id', id).first();
+
+        if(incidents == undefined) return response.status(404).json({error: 'Not Found'})
+
         if (incidents.ong_id !== ong_id){
             return response.status(401).json({ error: 'Operation not permitted.'}) /* status 401 é de não autorizado */
         }
